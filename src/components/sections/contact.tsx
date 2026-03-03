@@ -1,5 +1,5 @@
-"use client";
-import React from "react";
+'use client';
+import React, { useRef, useEffect } from 'react';
 import {
   Card,
   CardContent,
@@ -7,20 +7,31 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import ContactForm from "../ContactForm";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
-import { config } from "@/data/config";
+} from '@/components/ui/card';
+import ContactForm from '../ContactForm';
+import Link from 'next/link';
+import { cn } from '@/lib/utils';
+import { config } from '@/data/config';
+import { useInView } from 'framer-motion';
+
 const ContactSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { margin: '-50%' });
+
+  useEffect(() => {
+    if (isInView) {
+      window.history.replaceState(null, '', '#contact');
+    }
+  }, [isInView]);
+
   return (
-    <section id="contact" className="min-h-screen max-w-7xl mx-auto ">
-      <Link href={"#contact"}>
+    <section id="contact" ref={ref} className="min-h-screen max-w-7xl mx-auto ">
+      <Link href={'#contact'}>
         <h2
           className={cn(
-            "bg-clip-text text-4xl text-center text-transparent md:text-7xl pt-16",
-            "bg-gradient-to-b from-black/80 to-black/50",
-            "dark:bg-gradient-to-b dark:from-white/80 dark:to-white/20 dark:bg-opacity-50"
+            'bg-clip-text text-4xl text-center text-transparent md:text-7xl pt-16',
+            'bg-gradient-to-b from-black/80 to-black/50',
+            'dark:bg-gradient-to-b dark:from-white/80 dark:to-white/20 dark:bg-opacity-50'
           )}
         >
           LET&apos;S WORK <br />
@@ -38,7 +49,7 @@ const ContactSection = () => {
                 href={`mailto:${config.email}`}
                 className="text-gray-200 cursor-can-hover rounded-lg"
               >
-                {config.email.replace(/@/g, "(at)")}
+                {config.email.replace(/@/g, '(at)')}
               </a>{" "}
               or drop your info here.
             </CardDescription>

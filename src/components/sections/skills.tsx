@@ -1,29 +1,43 @@
-import Link from "next/link";
-import React from "react";
-import { BoxReveal } from "../reveal-animations";
-import { cn } from "@/lib/utils";
+'use client';
+import React, { useRef, useEffect } from 'react';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import Link from 'next/link';
+import { cn } from '@/lib/utils';
+import { config } from '@/data/config';
+import { useInView } from 'framer-motion';
 
 const SkillsSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { margin: '-50%' });
+
+  useEffect(() => {
+    if (isInView) {
+      window.history.replaceState(null, '', '#skills');
+    }
+  }, [isInView]);
+
   return (
-    <section id="skills" className="w-full h-screen md:h-[150dvh]">
-      <div className="top-[70px] sticky mb-96">
-        <Link href={"#skills"}>
-          <BoxReveal width="100%">
-            <h2
-              className={cn(
-                "bg-clip-text text-4xl text-center text-transparent md:text-7xl",
-                "bg-gradient-to-b from-black/80 to-black/50",
-                "dark:bg-gradient-to-b dark:from-white/80 dark:to-white/20 dark:bg-opacity-50 "
-              )}
-            >
-              SKILLS
-            </h2>
-          </BoxReveal>
-        </Link>
-        <p className="mx-auto mt-4 line-clamp-4 max-w-3xl font-normal text-base text-center text-neutral-300">
-          (hint: press a key)
-        </p>
-      </div>
+    <section id="skills" ref={ref} className="min-h-screen max-w-7xl mx-auto ">
+      <div href={'#skills'}>
+        <h2
+          className={cn(
+            'bg-clip-text text-4xl text-center text-transparent md:text-7xl pt-16',
+            'bg-gradient-to-b from-black/80 to-black/50',
+            'dark:bg-gradient-to-b dark:from-white/80 dark:to-white/20 dark:bg-opacity-50'
+          )}
+        >
+          SKILLS<br/>
+          <span className="text-[16px]">(Press N)</span>
+        
+        </h2>
+        </div>
     </section>
   );
 };

@@ -16,40 +16,24 @@ gsap.registerPlugin(ScrollTrigger);
 const STATES = {
   hero: {
     desktop: {
-      scale: { x: 0.25, y: 0.25, z: 0.25 },
-      position: { x: 400, y: -200, z: 0 },
+      scale: { x: 0.32, y: 0.32, z: 0.32 },
+      position: { x: 500, y: -200, z: 0 },
       rotation: { x: 0, y: 0, z: 0 },
     },
     mobile: {
       scale: { x: 0.15, y: 0.15, z: 0.15 },
       position: { x: 0, y: -200, z: 0 },
-      rotation: { x: 0, y: 0, z: 0 },
+      rotation: { 
+        x: 0, 
+        y: 0, 
+        z: 0 },
     },
   },
-  about: {
-    desktop: {
-      scale: { x: 0.4, y: 0.4, z: 0.4 },
-      position: { x: 0, y: -40, z: 0 },
-      rotation: {
-        x: 0,
-        y: Math.PI / 12,
-        z: 0,
-      },
-    },
-    mobile: {
-      scale: { x: 0.2, y: 0.2, z: 0.2 },
-      position: { x: 0, y: -40, z: 0 },
-      rotation: {
-        x: 0,
-        y: Math.PI / 6,
-        z: 0,
-      },
-    },
-  },
+
   skills: {
     desktop: {
       scale: { x: 0.4, y: 0.4, z: 0.4 },
-      position: { x: 0, y: -40, z: 0 },
+      position: { x: 0, y: -80, z: 0 },
       rotation: {
         x: 0,
         y: Math.PI / 12,
@@ -66,27 +50,8 @@ const STATES = {
       },
     },
   },
-  projects: {
-    desktop: {
-      scale: { x: 0.3, y: 0.3, z: 0.3 },
-      position: { x: 0, y: -40, z: 0 },
-      rotation: {
-        x: Math.PI,
-        y: Math.PI / 3,
-        z: Math.PI,
-      },
-    },
-    mobile: {
-      scale: { x: 0.18, y: 0.18, z: 0.18 },
-      position: { x: 0, y: 150, z: 0 },
-      rotation: {
-        x: Math.PI,
-        y: Math.PI / 3,
-        z: Math.PI,
-      },
-    },
-  },
-  contact: {
+
+  about: {
     desktop: {
       scale: { x: 0.3, y: 0.3, z: 0.3 },
       position: { x: 500, y: -250, z: 0 },
@@ -106,9 +71,72 @@ const STATES = {
       },
     },
   },
+
+  experience: {
+    desktop: {
+      scale: { x: 0.3, y: 0.3, z: 0.3 },
+      position: { x: 500, y: -350, z: 0 },
+      rotation: {
+        x: Math.PI,
+        y: Math.PI / 8,
+        z: Math.PI,
+      },
+    },
+    mobile: {
+      scale: { x: 0.18, y: 0.18, z: 0.18 },
+      position: { x: 0, y: 150, z: 0 },
+      rotation: {
+        x: Math.PI,
+        y: Math.PI / 3,
+        z: Math.PI,
+      },
+    },
+  },
+
+  projects: {
+    desktop: {
+      scale: { x: 0.35, y: 0.35, z: 0.35 },
+      position: { x: 0, y: -40, z: 0 },
+      rotation: {
+        x: Math.PI,
+        y: Math.PI / 3,
+        z: Math.PI,
+      },
+    },
+    mobile: {
+      scale: { x: 0.18, y: 0.18, z: 0.18 },
+      position: { x: 0, y: 150, z: 0 },
+      rotation: {
+        x: Math.PI,
+        y: Math.PI / 3,
+        z: Math.PI,
+      },
+    },
+  },
+
+  contact: {
+    desktop: {
+      scale: { x: 0.35, y: 0.35, z: 0.35 },
+      position: { x: 500, y: -250, z: 0 },
+      rotation: {
+        x: 0,
+        y: 0,
+        z: 0,
+      },
+    },
+    mobile: {
+      scale: { x: 0.18, y: 0.18, z: 0.18 },
+      position: { x: 0, y: 150, z: 0 },
+      rotation: {
+        x: Math.PI,
+        y: Math.PI / 3,
+        z: Math.PI,
+      },
+    },
+  },
 };
 
-type Section = "hero" | "about" | "skills" | "projects" | "contact";
+type Section = "hero" | "about" | "experience" | "skills" | "projects" | "contact";
 
 const AnimatedBackground = () => {
   const { isLoading, bypassLoading } = usePreloader();
@@ -352,9 +380,11 @@ const AnimatedBackground = () => {
     splineApp.addEventListener("keyDown", (e) => {
       if (!splineApp) return;
       const skill = SKILLS[e.target.name as SkillNames];
-      if (skill) setSelectedSkill(skill);
-      splineApp.setVariable("heading", skill.label);
-      splineApp.setVariable("desc", skill.shortDescription);
+      if (skill) {
+        setSelectedSkill(skill);
+        splineApp.setVariable("heading", skill.label);
+        splineApp.setVariable("desc", skill.shortDescription);
+      }
     });
     splineApp.addEventListener("mouseHover", handleMouseHover);
   };
@@ -371,10 +401,10 @@ const AnimatedBackground = () => {
     gsap.timeline({
       scrollTrigger: {
         trigger: "#skills",
-        start: "top 50%",
+        start: "top 30%",
         end: "bottom bottom",
         scrub: true,
-        // markers: true,
+        //markers: true,
         onEnter: () => {
           setActiveSection("skills");
           gsap.to(kbd.scale, {
@@ -407,23 +437,23 @@ const AnimatedBackground = () => {
     });
     gsap.timeline({
       scrollTrigger: {
-        trigger: "#projects",
-        start: "top 70%",
+        trigger: "#about",
+        start: "top 40%",
         end: "bottom bottom",
         scrub: true,
-        // markers: true,
+        //markers: true,
         onEnter: () => {
-          setActiveSection("projects");
+          setActiveSection("contact");
           gsap.to(kbd.scale, {
-            ...keyboardStates("projects").scale,
+            ...keyboardStates("contact").scale,
             duration: 1,
           });
           gsap.to(kbd.position, {
-            ...keyboardStates("projects").position,
+            ...keyboardStates("contact").position,
             duration: 1,
           });
           gsap.to(kbd.rotation, {
-            ...keyboardStates("projects").rotation,
+            ...keyboardStates("contact").rotation,
             duration: 1,
           });
         },
@@ -447,11 +477,91 @@ const AnimatedBackground = () => {
     });
     gsap.timeline({
       scrollTrigger: {
+        trigger: "#experience",
+        start: "top 40%",
+        end: "bottom bottom",
+        scrub: true,
+        //markers: true,
+        onEnter: () => {
+          setActiveSection("projects");
+          gsap.to(kbd.scale, {
+            ...keyboardStates("projects").scale,
+            duration: 1,
+          });
+          gsap.to(kbd.position, {
+            ...keyboardStates("experience").position,
+            duration: 1,
+          });
+          gsap.to(kbd.rotation, {
+            ...keyboardStates("projects").rotation,
+            duration: 1,
+          });
+        },
+        onLeaveBack: () => {
+          setActiveSection("contact");
+          gsap.to(kbd.scale, {
+            ...keyboardStates("contact").scale,
+            duration: 1,
+          });
+          gsap.to(kbd.position, {
+            ...keyboardStates("contact").position,
+            duration: 1,
+          });
+          gsap.to(kbd.rotation, {
+            ...keyboardStates("contact").rotation,
+            duration: 1,
+          });
+          // gsap.to(kbd.rotation, { x: 0, duration: 1 });
+        },
+      },
+    });
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: "#projects",
+        start: "top 65%",
+        end: "bottom bottom",
+        scrub: true,
+        //markers: true,
+        onEnter: () => {
+          setActiveSection("projects");
+          gsap.to(kbd.scale, {
+            ...keyboardStates("projects").scale,
+            duration: 1,
+          });
+          gsap.to(kbd.position, {
+            ...keyboardStates("projects").position,
+            duration: 1,
+          });
+          gsap.to(kbd.rotation, {
+            ...keyboardStates("projects").rotation,
+            duration: 1,
+          });
+        },
+        onLeaveBack: () => {
+          setActiveSection("projects");
+          gsap.to(kbd.scale, {
+            ...keyboardStates("projects").scale,
+            duration: 1,
+          });
+          gsap.to(kbd.position, {
+            ...keyboardStates("experience").position,
+            duration: 1,
+          });
+          gsap.to(kbd.rotation, {
+            ...keyboardStates("projects").rotation,
+            duration: 1,
+          });
+          // gsap.to(kbd.rotation, { x: 0, duration: 1 });
+        },
+      },
+    });
+    gsap.timeline({
+      scrollTrigger: {
         trigger: "#contact",
         start: "top 30%",
         end: "bottom bottom",
         scrub: true,
-        // markers: true,
+        //markers: true,
         onEnter: () => {
           setActiveSection("contact");
           gsap.to(kbd.scale, {

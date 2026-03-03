@@ -1,29 +1,39 @@
-"use client";
-import Image from "next/image";
-import React from "react";
+'use client';
+import Image from 'next/image';
+import React, { useRef, useEffect } from 'react';
 import {
   Modal,
   ModalBody,
   ModalContent,
   ModalFooter,
   ModalTrigger,
-} from "../ui/animated-modal";
-import { FloatingDock } from "../ui/floating-dock";
-import Link from "next/link";
+} from '../ui/animated-modal';
+import { FloatingDock } from '../ui/floating-dock';
+import Link from 'next/link';
+import { useInView } from 'framer-motion';
 
-import SmoothScroll from "../smooth-scroll";
-import projects, { Project } from "@/data/projects";
-import { cn } from "@/lib/utils";
+import SmoothScroll from '../smooth-scroll';
+import projects, { Project } from '@/data/projects';
+import { cn } from '@/lib/utils';
 
 const ProjectsSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { margin: '-50%' });
+
+  useEffect(() => {
+    if (isInView) {
+      window.history.replaceState(null, '', '#projects');
+    }
+  }, [isInView]);
+
   return (
-    <section id="projects" className="max-w-7xl mx-auto md:h-[130vh]">
-      <Link href={"#projects"}>
+    <section id="projects" ref={ref} className="max-w-7xl mx-auto md:h-[130vh]">
+      <Link href={'#projects'}>
         <h2
           className={cn(
-            "bg-clip-text text-4xl text-center text-transparent md:text-7xl pt-16",
-            "bg-gradient-to-b from-black/80 to-black/50",
-            "dark:bg-gradient-to-b dark:from-white/80 dark:to-white/20 dark:bg-opacity-50 mb-32"
+            'bg-clip-text text-4xl text-center text-transparent md:text-7xl pt-16',
+            'bg-gradient-to-b from-black/80 to-black/50',
+            'dark:bg-gradient-to-b dark:from-white/80 dark:to-white/20 dark:bg-opacity-50 mb-32'
           )}
         >
           Projects
@@ -44,7 +54,7 @@ const Modall = ({ project }: { project: Project }) => {
         <ModalTrigger className="bg-transparent flex justify-center group/modal-btn">
           <div
             className="relative w-[400px] h-auto rounded-lg overflow-hidden"
-            style={{ aspectRatio: "3/2" }}
+            style={{ aspectRatio: '3/2' }}
           >
             <Image
               className="absolute w-full h-full top-0 left-0 hover:scale-[1.05] transition-all"
@@ -110,35 +120,6 @@ const ProjectContents = ({ project }: { project: Project }) => {
           </div>
         )}
       </div>
-      {/* <div className="flex justify-center items-center">
-        {project.screenshots.map((image, idx) => (
-          <motion.div
-            key={"images" + idx}
-            style={{
-              rotate: Math.random() * 20 - 10,
-            }}
-            whileHover={{
-              scale: 1.1,
-              rotate: 0,
-              zIndex: 100,
-            }}
-            whileTap={{
-              scale: 1.1,
-              rotate: 0,
-              zIndex: 100,
-            }}
-            className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 flex-shrink-0 overflow-hidden"
-          >
-            <Image
-              src={`${project.src.split("1.png")[0]}${image}`}
-              alt="screenshots"
-              width="500"
-              height="500"
-              className="rounded-lg h-20 w-20 md:h-40 md:w-40 object-cover flex-shrink-0"
-            />
-          </motion.div>
-        ))}
-      </div> */}
       {project.content}
     </>
   );

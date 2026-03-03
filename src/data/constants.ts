@@ -1,45 +1,45 @@
-// thoda zada ts ho gya idhar
 export enum SkillNames {
+  GITLAB = "gitlab",
   AWS = "aws",
-  // AZURE = "azure",    // +
+  GCP = "gcp",    // +
   LINUX = "linux",    
   // SHELL = "shell",    // +
-  // PYTHON = "python",  // +
+  PYTHON = "python",  // +
   GIT = "git",
   DOCKER = "docker",
-  // SELENIUM = "selenium",  // +
-  // JENKINS = "jenkins",    // +
-  // KUBERNETES = "kubernetes",  // +
-  // ANSIBLE = "ansible",    // +
-  // TERRAFORM = "terraform",  // +
-  // PROMETHEUS = "prometheus",  // +
-  // GRAFANA = "grafana",    // +
+  //SELENIUM = "selenium",  // +
+  JENKINS = "jenkins",    // +
+  KUBERNETES = "kubernetes",  // +
+  ANSIBLE = "ansible",    // +
+  TERRAFORM = "terraform",  // +
+  PROMETHEUS = "prometheus",  // +
+  GRAFANA = "grafana",    // +
   // SONARQUBE = "sonarqube",  // +
   // OWASP = "owasp",    // +
   // TRIVY = "trivy",    // +
-  // MAVEN = "maven",    // +
+  MAVEN = "maven",    // +
   // GO = "go",        // +
-  HTML = "html",
-  CSS = "css",
-  JS = "js",
+  //HTML = "html",
+  //CSS = "css",
+  //JS = "js",
   // JAVA = "java",    // +
   POSTGRES = "postgres",
-  TS = "ts",         //
-  REACT = "react",   //
-  VUE = "vue",       //
-  NEXTJS = "nextjs", //
-  TAILWIND = "tailwind",  //
+  //TS = "ts",         //
+  BASH = "bash",   //
+  //VUE = "vue",       //
+  //NEXTJS = "nextjs", //
+  //TAILWIND = "tailwind",  //
   NODEJS = "nodejs",  //
-  EXPRESS = "express",  // 
+  //EXPRESS = "express",  // 
   MONGODB = "mongodb",  //
   GITHUB = "github",   //
-  PRETTIER = "prettier",  //
+  //PRETTIER = "prettier",  //
   NPM = "npm",       //
   FIREBASE = "firebase",  //
-  WORDPRESS = "wordpress",  //
+  //WORDPRESS = "wordpress",  //
   NGINX = "nginx",      //
   VIM = "vim",           //
-  VERCEL = "vercel",    //
+  LUFFY = "luffy",    //
 }
 export type Skill = {
   id: number;
@@ -50,70 +50,68 @@ export type Skill = {
   icon: string;
 };
 export const SKILLS: Record<SkillNames, Skill> = {
-  [SkillNames.JS]: {
+  [SkillNames.GITLAB]: {
     id: 1,
-    name: "js",
-    label: "JavaScript",
+    name: "gitlab",
+    label: "Gitlab",
     shortDescription: "yeeting code into the DOM since '95, no cap! 💯🚀",
     color: "#f0db4f",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
   },
-  [SkillNames.TS]: {
+  [SkillNames.KUBERNETES]: {
     id: 2,
-    name: "ts",
-    label: "TypeScript",
+    name: "kubernetes",
+    label: "Kubernetes",
     shortDescription:
       "JavaScript's overachieving cousin who's always flexing 💯🔒",
     color: "#007acc",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg",
   },
-  [SkillNames.HTML]: {
+  [SkillNames.FIREBASE]: {
     id: 3,
-    name: "html",
-    label: "HTML",
+    name: "firebase",
+    label: "Firebase",
     shortDescription: "the internet's granddad,  still bussin' fr fr! 💀🔥",
     color: "#e34c26",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
   },
-  [SkillNames.CSS]: {
+  [SkillNames.TERRAFORM]: {
     id: 4,
-    name: "css",
-    label: "CSS",
+    name: "terraform",
+    label: "Terraform",
     shortDescription: "styling with the ultimate drip, no cap 💁‍♂️🔥",
     color: "#563d7c",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
   },
-  [SkillNames.REACT]: {
+  [SkillNames.BASH]: {
     id: 5,
-    name: "react",
-    label: "React",
-    shortDescription: `"use using" 
-using use = useUsing("use")`,
+    name: "bash",
+    label: "Bash Scripting",
+    shortDescription: `"use using" using use = useUsing("use")`,
     color: "#61dafb",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
   },
-  [SkillNames.VUE]: {
+  [SkillNames.PYTHON]: {
     id: 6,
-    name: "vue",
-    label: "Vue",
-    shortDescription:
-      "the chill pill for your frontend, it hits different! 🟢😌",
-    color: "#41b883",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+    name: "python",
+    label: "Python",
+    shortDescription: "The coding equivalent of 'It just works' — even when you barely know what you're doing. 🐍📜",
+    color: "#61dafb",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
   },
-  [SkillNames.NEXTJS]: {
+  [SkillNames.PROMETHEUS]: {
     id: 7,
-    name: "nextjs",
-    label: "Next.js",
+    name: "prometheus",
+    label: "Prometheus",
     shortDescription:
       "the drama queen of front-end frameworks, and we stan! 👑📜",
     color: "#fff",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
   },
-  [SkillNames.TAILWIND]: {
+  [SkillNames.ANSIBLE]: {
     id: 8,
-    name: "tailwind",
-    label: "Tailwind",
+    name: "ansible",
+    label: "Ansible",
     shortDescription: "utility classes hitting different fr fr 🌪️🔥",
     color: "#38bdf8",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
@@ -126,13 +124,13 @@ using use = useUsing("use")`,
     color: "#6cc24a",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
   },
-  [SkillNames.EXPRESS]: {
+  [SkillNames.GRAFANA]: {
     id: 10,
-    name: "express",
-    label: "Express",
-    shortDescription: "middlewares go dummy hard, no cap! 🚂💨",
-    color: "#fff",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+    name: "grafana",
+    label: "Grafana",
+    shortDescription: "Turning boring metrics into Pinterest-worthy dashboards. 📊✨",
+    color: "#000000",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grafana/grafana-original.svg",
   },
   [SkillNames.POSTGRES]: {
     id: 11,
@@ -166,13 +164,13 @@ using use = useUsing("use")`,
     color: "#000000",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
   },
-  [SkillNames.PRETTIER]: {
+  [SkillNames.JENKINS]: {
     id: 15,
-    name: "prettier",
-    label: "Prettier",
-    shortDescription: "making your code not a whole mess, thank u next 🧹✨",
-    color: "#f7b93a",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prettier/prettier-original.svg",
+    name: "jenkins",
+    label: "Jenkins",
+    shortDescription: "The 'butler' who builds and deploys your code but complains with every red build. 🤵🚦",
+    color: "#6cc24a",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg",
   },
   [SkillNames.NPM]: {
     id: 16,
@@ -182,19 +180,19 @@ using use = useUsing("use")`,
     color: "#fff",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg",
   },
-  [SkillNames.FIREBASE]: {
+  [SkillNames.GCP]: {
     id: 17,
-    name: "firebase",
-    label: "Firebase",
+    name: "gcp",
+    label: "Google Cloud",
     shortDescription:
       "your app's ultimate wingman, but watch out, vendor lock-in vibes! 🔥👌",
     color: "#ffca28",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
   },
-  [SkillNames.WORDPRESS]: {
+  [SkillNames.MAVEN]: {
     id: 18,
-    name: "wordpress",
-    label: "WordPress",
+    name: "maven",
+    label: "Maven",
     shortDescription: "the grandpa of CMS, still rocking that cane 🧓👴",
     color: "#007acc",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg",
@@ -240,12 +238,12 @@ using use = useUsing("use")`,
     color: "#e34c26",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vim/vim-original.svg",
   },
-  [SkillNames.VERCEL]: {
+  [SkillNames.LUFFY]: {
     id: 24,
-    name: "vercel",
-    label: "Vercel",
+    name: "luffy",
+    label: "Monkey D Luffy",
     shortDescription:
-      "The triangle compony, helps you deploy and go touch grass! 🚀🌿",
+      "As long as i'm alive there are infinite chances ",
     color: "#6cc24a",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
   },
@@ -325,9 +323,9 @@ using use = useUsing("use")`,
 //     id: 9,
 //     name: "jenkins",
 //     label: "Jenkins",
-//     shortDescription: "The 'butler' who builds and deploys your code but complains with every red build. 🤵🚦",
-//     color: "#6cc24a",
-//     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg",
+     //shortDescription: "The 'butler' who builds and deploys your code but complains with every red build. 🤵🚦",
+     //color: "#6cc24a",
+     //icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg",
 //   },
 //   [SkillNames.KUBERNETES]: {
 //     id: 10,
@@ -470,4 +468,3 @@ export const themeDisclaimers = {
     "Dark mode on! Finally, someone who understands true sophistication.",
   ],
 };
-
