@@ -207,7 +207,7 @@ const AnimatedBackground = () => {
     if (!selectedSkill || !splineApp) return;
     splineApp.setVariable("heading", selectedSkill.label);
     splineApp.setVariable("desc", selectedSkill.shortDescription);
-  }, [selectedSkill]);
+  }, [selectedSkill, splineApp]);
 
   // handle keyboard heading and desc visibility
   useEffect(() => {
@@ -259,6 +259,7 @@ const AnimatedBackground = () => {
     handleGsapAnimations();
     setBongoAnimation(getBongoAnimation());
     setKeycapAnimtations(getKeycapsAnimation());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [splineApp]);
 
   useEffect(() => {
@@ -332,6 +333,7 @@ const AnimatedBackground = () => {
       if (rotateKeyboard) rotateKeyboard.kill();
       if (teardownKeyboard) teardownKeyboard.kill();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeSection, splineApp]);
 
   const [keyboardRevealed, setKeyboardRevealed] = useState(false);
@@ -342,6 +344,7 @@ const AnimatedBackground = () => {
     router.push("/" + hash, { scroll: false });
     if (!splineApp || isLoading || keyboardRevealed) return;
     revealKeyCaps();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [splineApp, isLoading, activeSection]);
   const revealKeyCaps = async () => {
     if (!splineApp) return;
