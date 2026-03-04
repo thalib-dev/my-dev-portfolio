@@ -451,7 +451,7 @@ const projects: Project[] = [
     title: "My Portfolio",
     src: "/assets/projects-screenshots/myportfolio/landing.png",
     screenshots: ["assets/projects-screenshots/myportfolio/landing.png"],
-    live: "https://thalib.dev",
+    live: "https://thalib-dev.vercel.app",
     github: "https://github.com/thalib-dev/my-dev-portfolio",
     skills: {
       frontend: [
