@@ -41,11 +41,11 @@ const AboutSection = () => {
               </p>
 
               <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                Currently, I work as a Software Engineer at <strong>UC Operations LLC</strong>, where I specialize in automating complex data processing workflows using <strong>GCP</strong> and <strong>Firebase</strong>. As a solo contributor, I've successfully deployed over 5 zero-bug cloud API projects and am now contributing to the development of an advanced <strong>ML-powered chatbot</strong>.
+                Currently, I work as a Software Engineer at <strong>UC Operations LLC</strong>, where I specialize in automating complex data processing workflows using <strong>GCP</strong> and <strong>Firebase</strong>. As a solo contributor, I&apos;ve successfully deployed over 5 zero-bug cloud API projects and am now contributing to the development of an advanced <strong>ML-powered chatbot</strong>.
               </p>
 
               <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                My technical sweet spot lies in combining cloud architecture (<strong>AWS, GCP</strong>) with robust backend technologies (<strong>Python, Node.js</strong>) and modern DevOps practices (<strong>CI/CD, Terraform</strong>). Whether it's architecting a zero-downtime deployment pipeline or building custom automation bots, I am passionate about engineering systems that are fast, maintainable, and built to last.
+                My technical sweet spot lies in combining cloud architecture (<strong>AWS, GCP</strong>) with robust backend technologies (<strong>Python, Node.js</strong>) and modern DevOps practices (<strong>CI/CD, Terraform</strong>). Whether it&apos;s architecting a zero-downtime deployment pipeline or building custom automation bots, I am passionate about engineering systems that are fast, maintainable, and built to last.
               </p>
             </CardContent>
           </Card>
