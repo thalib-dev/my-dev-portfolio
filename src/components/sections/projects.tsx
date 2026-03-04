@@ -27,7 +27,7 @@ const ProjectsSection = () => {
   }, [isInView]);
 
   return (
-    <section id="projects" ref={ref} className="max-w-7xl mx-auto md:h-[130vh]">
+    <section id="projects" ref={ref} className="max-w-[1600px] mx-auto md:min-h-screen py-20 px-4">
       <Link href={'#projects'}>
         <h2
           className={cn(
@@ -39,7 +39,7 @@ const ProjectsSection = () => {
           Projects
         </h2>
       </Link>
-      <div className="grid grid-cols-1 md:grid-cols-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
         {projects.map((project, index) => (
           <Modall key={project.src} project={project} />
         ))}
@@ -53,8 +53,7 @@ const Modall = ({ project }: { project: Project }) => {
       <Modal>
         <ModalTrigger className="bg-transparent flex justify-center group/modal-btn">
           <div
-            className="relative w-[400px] h-auto rounded-lg overflow-hidden"
-            style={{ aspectRatio: '3/2' }}
+            className="relative w-full aspect-[3/2] min-h-[312px] rounded-lg overflow-hidden border border-neutral-200 dark:border-neutral-800"
           >
             <Image
               className="absolute w-full h-full top-0 left-0 hover:scale-[1.05] transition-all"

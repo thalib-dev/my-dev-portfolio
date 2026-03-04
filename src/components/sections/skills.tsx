@@ -25,7 +25,7 @@ const SkillsSection = () => {
 
   return (
     <section id="skills" ref={ref} className="min-h-screen max-w-7xl mx-auto ">
-      <div href={'#skills'}>
+      <Link href={'#skills'}>
         <h2
           className={cn(
             'bg-clip-text text-4xl text-center text-transparent md:text-7xl pt-16',
@@ -33,11 +33,11 @@ const SkillsSection = () => {
             'dark:bg-gradient-to-b dark:from-white/80 dark:to-white/20 dark:bg-opacity-50'
           )}
         >
-          SKILLS<br/>
+          SKILLS<br />
           <span className="text-[16px]">(Press N)</span>
-        
+
         </h2>
-        </div>
+      </Link>
     </section>
   );
 };

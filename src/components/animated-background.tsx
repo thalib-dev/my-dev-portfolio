@@ -23,10 +23,11 @@ const STATES = {
     mobile: {
       scale: { x: 0.15, y: 0.15, z: 0.15 },
       position: { x: 0, y: -200, z: 0 },
-      rotation: { 
-        x: 0, 
-        y: 0, 
-        z: 0 },
+      rotation: {
+        x: 0,
+        y: 0,
+        z: 0
+      },
     },
   },
 
@@ -160,19 +161,43 @@ const AnimatedBackground = () => {
     return STATES[section][isMobile ? "mobile" : "desktop"];
   };
 
+  const clickSoundRef = useRef<HTMLAudioElement | null>(null);
+  const hoveredTargetRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    // Only initialize Audio on the client side
+    if (typeof window !== "undefined") {
+      clickSoundRef.current = new Audio("/assets/click.mp3");
+    }
+  }, []);
+
   const handleMouseHover = (e: SplineEvent) => {
-    if (!splineApp || selectedSkill?.name === e.target.name) return;
+    if (!splineApp) return;
 
     if (e.target.name === "body" || e.target.name === "platform") {
       setSelectedSkill(null);
+      hoveredTargetRef.current = null; // Clear synchronous tracker
+
       if (splineApp.getVariable("heading") && splineApp.getVariable("desc")) {
         splineApp.setVariable("heading", "");
         splineApp.setVariable("desc", "");
       }
     } else {
-      if (!selectedSkill || selectedSkill.name !== e.target.name) {
+      // Use the ref to ensure we don't trigger the click on rapid subsequent events of the same object
+      if (hoveredTargetRef.current !== e.target.name) {
+        hoveredTargetRef.current = e.target.name;
+
         const skill = SKILLS[e.target.name as SkillNames];
-        setSelectedSkill(skill);
+        if (skill) {
+          setSelectedSkill(skill);
+        }
+
+        // Play the click sound ONLY when selecting a new keycap
+        if (clickSoundRef.current) {
+          clickSoundRef.current.currentTime = 0;
+          clickSoundRef.current.volume = 0.1;
+          clickSoundRef.current.play().catch((e) => console.log("Audio play blocked by browser policy"));
+        }
       }
     }
   };
@@ -250,7 +275,7 @@ const AnimatedBackground = () => {
         yoyo: true,
         yoyoEase: true,
         ease: "back.inOut",
-        delay: 2.5,
+        delay: 3.0,
       });
       teardownKeyboard = gsap.fromTo(
         kbd.rotation,
@@ -601,7 +626,7 @@ const AnimatedBackground = () => {
     const frame1 = splineApp?.findObjectByName("frame-1");
     const frame2 = splineApp?.findObjectByName("frame-2");
     if (!frame1 || !frame2 || !framesParent)
-      return { start: () => {}, stop: () => {} };
+      return { start: () => { }, stop: () => { } };
 
     let interval: NodeJS.Timeout;
     const start = () => {
@@ -627,7 +652,7 @@ const AnimatedBackground = () => {
     return { start, stop };
   };
   const getKeycapsAnimation = () => {
-    if (!splineApp) return { start: () => {}, stop: () => {} };
+    if (!splineApp) return { start: () => { }, stop: () => { } };
 
     let tweens: gsap.core.Tween[] = [];
     const start = () => {

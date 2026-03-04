@@ -32,27 +32,23 @@ const AboutSection = () => {
         </h2>
       </Link>
       <div className="relative mt-12 max-w-4xl">
-        
+
         <div className="relative pl-12">
-            <Card className="w-full bg-white/0 border-white/0">
-                <CardContent className="p-6 space-y-6 text-left">
-                    <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                    I'm a DevOps engineer by trade, but at my core, I'm a problem-solver. I thrive on building the digital backbone—the automated, scalable, and resilient infrastructure—that allows great ideas to come to life. For me, it's about creating systems that are not just functional, but also elegant and efficient.
-                    </p>
+          <Card className="w-full bg-white/0 border-white/0">
+            <CardContent className="p-6 space-y-6 text-left">
+              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                I’m <strong>Mohammed Thalib TM</strong>, a Junior Software Engineer with 8 months of experience focused on building reliable, scalable infrastructure and intelligent applications. I thrive on solving complex engineering problems and creating systems that are not just functional, but also elegant and efficient.
+              </p>
 
-                    <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                    My work revolves around the entire DevOps lifecycle. I containerize applications using <strong>Docker</strong>, orchestrate them with <strong>Kubernetes</strong>, and construct the <strong>CI/CD pipelines</strong> (with Jenkins or GitHub Actions) that seamlessly move code from development to production. I'm at home in the cloud, especially with <strong>AWS</strong>, and I’m a firm believer in <strong>Infrastructure as Code (IaC)</strong> for creating predictable and repeatable environments.
-                    </p>
-                    
-                    <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                    What truly motivates me is the challenge of optimization. I enjoy diving into complex workflows to make them faster, more reliable, and less dependent on manual intervention. Whether it's through savvy <strong>shell scripting</strong>, implementing robust monitoring and logging, or refining deployment strategies, my ultimate goal is to empower development teams by creating a frictionless path to production.
-                    </p>
+              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                Currently, I work as a Software Engineer at <strong>UC Operations LLC</strong>, where I specialize in automating complex data processing workflows using <strong>GCP</strong> and <strong>Firebase</strong>. As a solo contributor, I've successfully deployed over 5 zero-bug cloud API projects and am now contributing to the development of an advanced <strong>ML-powered chatbot</strong>.
+              </p>
 
-                    <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                    In the end, I'm passionate about building things that are built to last. I strive to engineer infrastructure that is not only production-ready but also maintainable and a pleasure to work on.
-                    </p>
-                </CardContent>
-            </Card>
+              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                My technical sweet spot lies in combining cloud architecture (<strong>AWS, GCP</strong>) with robust backend technologies (<strong>Python, Node.js</strong>) and modern DevOps practices (<strong>CI/CD, Terraform</strong>). Whether it's architecting a zero-downtime deployment pipeline or building custom automation bots, I am passionate about engineering systems that are fast, maintainable, and built to last.
+              </p>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>

@@ -40,7 +40,7 @@ type SocketContextType = {
 const INITIAL_STATE: SocketContextType = {
   socket: null,
   users: new Map(),
-  setUsers: () => {},
+  setUsers: () => { },
   msgs: [],
 };
 
@@ -53,25 +53,34 @@ const SocketContextProvider = ({ children }: { children: ReactNode }) => {
 
   // SETUP SOCKET.IO
   useEffect(() => {
-    const username =  localStorage.getItem("username") || generateRandomCursor().name
-    const socket = io(process.env.NEXT_PUBLIC_WS_URL!, {
+    if (
+      !process.env.NEXT_PUBLIC_WS_URL ||
+      process.env.NEXT_PUBLIC_WS_URL === "undefined"
+    ) {
+      return;
+    }
+
+    const username =
+      localStorage.getItem("username") || generateRandomCursor().name;
+    const newSocket = io(process.env.NEXT_PUBLIC_WS_URL, {
       query: { username },
     });
-    setSocket(socket);
-    socket.on("connect", () => {});
-    socket.on("msgs-receive-init", (msgs) => {
+
+    setSocket(newSocket);
+    newSocket.on("connect", () => { });
+    newSocket.on("msgs-receive-init", (msgs) => {
       setMsgs(msgs);
     });
-    socket.on("msg-receive", (msgs) => {
+    newSocket.on("msg-receive", (msgs) => {
       setMsgs((p) => [...p, msgs]);
     });
     return () => {
-      socket.disconnect();
+      newSocket.disconnect();
     };
   }, []);
 
   return (
-    <SocketContext.Provider value={{ socket: socket, users, setUsers, msgs }}>
+    <SocketContext.Provider value={{ socket, users, setUsers, msgs }}>
       {children}
     </SocketContext.Provider>
   );

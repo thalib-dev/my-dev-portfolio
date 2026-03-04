@@ -52,11 +52,11 @@ const HeroSection = () => {
                         )}
                       >
                         {config.author.split(" ")[0]}
-                        <br className="md:block hiidden" />
+                        <br className="md:block hidden" />
                         {config.author.split(" ")[1]}
                         {/* PLEASE hello??
 
-                        <br className="md:block hiidden" />
+                        <br className="md:block hidden" />
                         UNMUTE ME 😢😢 */}
                       </h1>
                     </TooltipTrigger>
@@ -82,7 +82,7 @@ const HeroSection = () => {
               <div className="mt-8 md:ml-2 flex flex-col gap-3">
                 <Link
                   href={
-                    "https://drive.google.com/file/d/1gP3UngFlxxmITX674UGrK28PEVRW50GC/view"
+                    "https://drive.google.com/file/d/1EJNf0aIGCg5TUCmMdI28Ye8SZmASeCky/view"
                   }
                   target="_blank"
                   className="flex-1"

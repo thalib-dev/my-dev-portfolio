@@ -34,13 +34,13 @@ const links: Link[] = [
   {
     title: 'Contact',
     href: '/#contact',
-    thumbnail: '/assets/nav-link-previews/contact.png', 
+    thumbnail: '/assets/nav-link-previews/contact.png',
   },
   {
-   
+
     title: 'Experience',
     href: '/#experience',
-    thumbnail: '/assets/nav-link-previews/blog.png'
+    thumbnail: '/assets/nav-link-previews/experience.png'
   }
 ];
 
