@@ -244,7 +244,7 @@ const PROJECT_SKILLS = {
     title: "OpenAI",
     bg: "black",
     fg: "white",
-    icon: <img src="assets/icons/openai-svgrepo-com_white.svg" alt="OpenAI" />,
+    icon: <Image src="/assets/icons/openai-svgrepo-com_white.svg" alt="OpenAI" width={24} height={24} />,
   },
   netlify: {
     title: "Netlify",
@@ -280,7 +280,7 @@ const PROJECT_SKILLS = {
     title: "Java",
     bg: "black",
     fg: "white",
-    icon: <img src="assets/icons/icons8-java.svg" alt="Java" />,
+    icon: <Image src="/assets/icons/icons8-java.svg" alt="Java" width={24} height={24} />,
   },
   cplusplus: {
     title: "C++",
