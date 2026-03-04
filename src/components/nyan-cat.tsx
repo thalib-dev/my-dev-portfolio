@@ -93,6 +93,7 @@ const AnimatedDiv = ({
       onClick={handlePause}
     >
       <Image
+        unoptimized={true}
         width={160}
         height={160}
         src="/assets/nyan-cat.gif"
