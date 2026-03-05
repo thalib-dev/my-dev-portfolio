@@ -63,8 +63,8 @@ const STATES = {
       },
     },
     mobile: {
-      scale: { x: 0.18, y: 0.18, z: 0.18 },
-      position: { x: 0, y: 150, z: 0 },
+      scale: { x: 0.12, y: 0.12, z: 0.12 },
+      position: { x: 0, y: 350, z: 0 },
       rotation: {
         x: Math.PI,
         y: Math.PI / 3,
@@ -84,8 +84,8 @@ const STATES = {
       },
     },
     mobile: {
-      scale: { x: 0.18, y: 0.18, z: 0.18 },
-      position: { x: 0, y: 150, z: 0 },
+      scale: { x: 0.12, y: 0.12, z: 0.12 },
+      position: { x: 0, y: 350, z: 0 },
       rotation: {
         x: Math.PI,
         y: Math.PI / 3,
@@ -105,8 +105,8 @@ const STATES = {
       },
     },
     mobile: {
-      scale: { x: 0.18, y: 0.18, z: 0.18 },
-      position: { x: 0, y: 150, z: 0 },
+      scale: { x: 0.12, y: 0.12, z: 0.12 },
+      position: { x: 0, y: 350, z: 0 },
       rotation: {
         x: Math.PI,
         y: Math.PI / 3,
@@ -126,8 +126,8 @@ const STATES = {
       },
     },
     mobile: {
-      scale: { x: 0.18, y: 0.18, z: 0.18 },
-      position: { x: 0, y: 150, z: 0 },
+      scale: { x: 0.12, y: 0.12, z: 0.12 },
+      position: { x: 0, y: 350, z: 0 },
       rotation: {
         x: Math.PI,
         y: Math.PI / 3,
@@ -700,14 +700,16 @@ const AnimatedBackground = () => {
   return (
     <>
       <Suspense fallback={<div>Loading...</div>}>
-        <Spline
-          ref={splineContainer}
-          onLoad={(app: Application) => {
-            setSplineApp(app);
-            bypassLoading();
-          }}
-          scene="/assets/skills-keyboard.spline"
-        />
+        <div className="pointer-events-none md:pointer-events-auto h-full w-full">
+          <Spline
+            ref={splineContainer}
+            onLoad={(app: Application) => {
+              setSplineApp(app);
+              bypassLoading();
+            }}
+            scene="/assets/skills-keyboard.spline"
+          />
+        </div>
       </Suspense>
     </>
   );
