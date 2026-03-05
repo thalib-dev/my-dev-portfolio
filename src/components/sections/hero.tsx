@@ -52,7 +52,7 @@ const HeroSection = () => {
                         )}
                       >
                         {config.author.split(" ")[0]}
-                        <br className="md:block hidden" />
+                        <br className="block" />
                         {config.author.split(" ")[1]}
                         {/* PLEASE hello??
 
@@ -79,7 +79,7 @@ const HeroSection = () => {
                     Passionate about DevOps & Automation</p>
                 </BlurIn>
               </div>
-              <div className="mt-8 md:ml-2 flex flex-col gap-3">
+              <div className="mt-8 ml-1 md:ml-2 flex flex-col gap-3">
                 <Link
                   href={
                     "https://drive.google.com/file/d/1Dmcd85N-Pp79ApR9aZeMU6ze-G135vou/view"
