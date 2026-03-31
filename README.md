@@ -67,7 +67,7 @@ Feel free to reach out to me for collaboration, feedback, or just to say hi! ðŸ˜
 
 - **Name:** Mohammed Thalib TM
 - **Email:** md.thalib.dev@gmail.com
-- **LinkedIn:** [My LinkedIn](https://linkedin.com/in/thalib-tm
+- **LinkedIn:** [My LinkedIn](https://linkedin.com/in/mt-thalib
 - **GitHub:** [thalib-dev](https://github.com/thalib-dev)
 
 ---
