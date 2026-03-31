@@ -66,8 +66,8 @@ The portfolio website is built using the following tools and technologies:
 Feel free to reach out to me for collaboration, feedback, or just to say hi! 😊
 
 - **Name:** Mohammed Thalib TM
-- **Email:** mhdthalibtm@gmail.com
-- **LinkedIn:** [My LinkedIn](https://linkedin.com/in/mohammed-thalib-tm)
+- **Email:** md.thalib.dev@gmail.com
+- **LinkedIn:** [My LinkedIn](https://linkedin.com/in/thalib-tm
 - **GitHub:** [thalib-dev](https://github.com/thalib-dev)
 
 ---
